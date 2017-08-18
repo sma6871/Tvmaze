@@ -27,11 +27,13 @@ abstract class BaseRepository<T : BaseModel>(clazz: Class<T>) {
     }
 
     fun saveCached(model: T) {
+        SugarRecord.deleteAll(clazz, "is_cached=?", "1")
         model.isCached = true
         model.save()
+
     }
 
-    fun loadCached() = SugarRecord.find(clazz, "is_cached", "true")
+    fun loadCached() = SugarRecord.find(clazz, "is_Cached=?", "1").first()
 
     fun loadAll() = SugarRecord.listAll(clazz)
 

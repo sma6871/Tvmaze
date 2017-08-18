@@ -19,7 +19,6 @@ data class MovieModel(
 	val webChannel: WebChannel? = null,
 	val genres: List<String?>? = null,
 	val name: String? = null,
-	val id: Int? = null,
 	val externals: Externals? = null,
 	val updated: Int? = null,
 	val status: String? = null

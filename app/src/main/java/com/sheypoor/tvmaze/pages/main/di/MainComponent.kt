@@ -2,6 +2,7 @@ package com.sheypoor.tvmaze.pages.main.di
 
 import com.sheypoor.tvmaze.app.di.ApplicationComponent
 import com.sheypoor.tvmaze.app.di.PerActivity
+import com.sheypoor.tvmaze.data.repository.MoviesRepo
 import com.sheypoor.tvmaze.pages.main.MainActivity
 import dagger.Component
 
@@ -13,5 +14,6 @@ import dagger.Component
 interface MainComponent {
 
     fun inject(mainActivity: MainActivity)
+    fun inject(movieRepo: MoviesRepo)
 
 }

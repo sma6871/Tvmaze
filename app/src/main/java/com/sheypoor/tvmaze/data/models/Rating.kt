@@ -1,5 +1,7 @@
 package com.sheypoor.tvmaze.data.models
 
+import com.sheypoor.tvmaze.base.BaseModel
+
 data class Rating(
-	val average: Int? = null
-)
+	val average: Float? = null
+): BaseModel()

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.sheypoor.tvmaze.pages.detail.MovieDetailActivity"
+    tools:showIn="@layout/activity_movie_detail">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey_600"
+            android:padding="@dimen/padding_medium">
+
+            <TextView
+                android:id="@+id/txtDateAndRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2014-10-20"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txtDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_medium"
+            android:text="description"
+            android:lineSpacingExtra="@dimen/text_extra_space"
+            android:textAppearance="?android:attr/textAppearanceListItem"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

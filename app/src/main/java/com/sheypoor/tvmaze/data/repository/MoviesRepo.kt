@@ -1,6 +1,7 @@
 package com.sheypoor.tvmaze.data.repository
 
 import com.nevro.mydiet.base.BaseRepository
+import com.sheypoor.tvmaze.app.di.DependencyInjector
 import com.sheypoor.tvmaze.data.models.MovieModel
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -15,6 +16,10 @@ object MoviesRepo : BaseRepository<MovieModel>(MovieModel::class.java) {
 
     var lastLoadedPageNumber = 0
 
+    init {
+        DependencyInjector.mainComponent?.inject(this)
+    }
+
     /**
      * Load TvMaze shows by page number
      * @param pageNumber : movies page number to load
@@ -24,8 +29,8 @@ object MoviesRepo : BaseRepository<MovieModel>(MovieModel::class.java) {
         lastLoadedPageNumber = pageNumber
 
         return apiService.loadMovies(pageNumber)
-                .subscribeOn(AndroidSchedulers.mainThread())
-                .observeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
 
     }
 

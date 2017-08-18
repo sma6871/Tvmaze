@@ -12,8 +12,9 @@ interface MovieListContract {
     interface View : BaseView<Presenter> {
         fun showMovies(movies: List<MovieModel>)
         fun setLoadingIndicator(active: Boolean)
-        fun showMovieDetail(movieId: Int?)
+        fun showMovieDetail()
         fun showNextPage(movies: List<MovieModel>)
+        fun showError(message: String?)
     }
 
     interface Presenter : BasePresenter {

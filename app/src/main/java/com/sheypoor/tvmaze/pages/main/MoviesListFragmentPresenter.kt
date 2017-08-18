@@ -1,7 +1,5 @@
 package com.sheypoor.tvmaze.pages.main
 
-import android.util.Log
-import com.sheypoor.tvmaze.constants.Configs
 import com.sheypoor.tvmaze.data.models.MovieModel
 import com.sheypoor.tvmaze.data.repository.MoviesRepo
 import io.reactivex.disposables.CompositeDisposable
@@ -16,7 +14,10 @@ class MoviesListFragmentPresenter(val view: MovieListContract.View) : MovieListC
     }
 
     override fun openMoviesDetail(movieModel: MovieModel) {
-
+        movieModel.image?.save()
+        movieModel.rating?.save()
+        MoviesRepo.saveCached(movieModel)
+        view.showMovieDetail()
     }
 
     override fun start() {
@@ -38,8 +39,7 @@ class MoviesListFragmentPresenter(val view: MovieListContract.View) : MovieListC
 
         compositeDisposable.add(
                 MoviesRepo.loadMovies(MoviesRepo.lastLoadedPageNumber + 1).subscribe(
-                        {
-                            result ->
+                        { result ->
                             run {
                                 if (clearData)
                                     view.showMovies(result)
@@ -49,10 +49,9 @@ class MoviesListFragmentPresenter(val view: MovieListContract.View) : MovieListC
                                 MoviesRepo.lastLoadedPageNumber += 1
                             }
                         },
-                        {
-                            error ->
+                        { error ->
                             run {
-                                Log.e(Configs.LOGTAG, error.localizedMessage)
+                                view.showError(error.localizedMessage)
                                 view.setLoadingIndicator(false)
                             }
                         }

@@ -2,11 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sheypoor.tvmaze.pages.main.MoviesListFragment">
+    tools:context="com.sheypoor.tvmaze.pages.main.MoviesListFragment"
+    android:background="@color/colorPrimaryDark">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/listMovies"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:columnWidth="@dimen/item_movie_width"/>
 
+    <ProgressBar
+        android:id="@+id/progressBarData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
 </FrameLayout>

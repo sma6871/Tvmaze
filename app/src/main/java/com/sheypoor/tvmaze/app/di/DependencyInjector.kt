@@ -11,12 +11,14 @@ import com.sheypoor.tvmaze.pages.main.di.MainComponent
  */
 
 object DependencyInjector {
+    private var _mainComponent: MainComponent? = null
+
     var mainComponent: MainComponent? = null
         private set
         get() {
-            if (mainComponent == null)
+            if (_mainComponent == null)
                 initMainComponent()
-            return mainComponent
+            return _mainComponent
         }
 
     var applicationComponent: ApplicationComponent? = null
@@ -33,7 +35,7 @@ object DependencyInjector {
     }
 
     private fun initMainComponent() {
-        mainComponent = DaggerMainComponent
+        _mainComponent = DaggerMainComponent
                 .builder()
                 .applicationComponent(applicationComponent)
                 .build()

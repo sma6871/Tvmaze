@@ -1,5 +1,6 @@
 package com.sheypoor.tvmaze.app
 
+import butterknife.ButterKnife
 import com.orm.SugarApp
 import com.sheypoor.tvmaze.app.di.DependencyInjector
 
@@ -10,7 +11,7 @@ class TvMazeApplication : SugarApp() {
 
     override fun onCreate() {
         super.onCreate()
-
+        ButterKnife.setDebug(true)
         DependencyInjector.initApplicationComponent(this)
     }
 

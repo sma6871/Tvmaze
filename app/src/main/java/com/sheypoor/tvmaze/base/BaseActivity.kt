@@ -21,8 +21,20 @@ abstract class BaseActivity : AppCompatActivity() {
         onViewReady(savedInstanceState, intent)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(getContentView())
+        ButterKnife.bind(this)
+        onViewReady(savedInstanceState)
+    }
+
     open fun onViewReady(savedInstanceState: Bundle?, intent: Intent?) {
         resolveDependencies()
     }
+
+    open fun onViewReady(savedInstanceState: Bundle?) {
+        resolveDependencies()
+    }
+
 
 }
