@@ -1,6 +1,6 @@
 # Tv Maze
 
-This is an android project written in <b>kotlin</b> to show how to use [TVMAZA API](http://www.tvmaze.com/api).
+This is an android project written in <b>kotlin</b> to show how to use [TVMAZE API](http://www.tvmaze.com/api).
 
 ### Libraries used in this project:
 - Dagger 2
